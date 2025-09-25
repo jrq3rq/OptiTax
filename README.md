@@ -2,7 +2,7 @@
 
 OptiTax is a privacy-first, React-based web application built with Create React App, designed to guide small to medium enterprises (SMEs) and high-net-worth individuals through an 18-question **Tax Cycle Optimizer v4 Questionnaire**. It streamlines a tax-efficient profit transfer and borrowing strategy, ensuring compliance with US tax laws (e.g., IRC Secs. 243, 385, 168, 61, 163, 542, 7701(o), 1014).
 
-The chatbot processes inputs in-memory with no data storage, generating a **client-side PDF report** containing:
+The chatbot processes inputs in-memory with no data storage, using the Grok API (xAI) to generate a **client-side PDF report** containing:
 - Tax savings
 - Compliance checklist
 - Risk warnings
@@ -28,12 +28,12 @@ Enable users to:
 # Features
 
 - **Questionnaire**: 18 conversational questions covering entity setup, profit transfer, asset purchase, borrowing, compliance, and planning.
-- **Privacy**: In-memory processing (React state), no data storage, cleared post-session via `clearSession.js`, SOC 2-compliant.
-- **Report**: Client-side PDF (jsPDF) with tax savings, compliance checklist (e.g., Form 1120), risk warnings (e.g., PHC, high debt-to-asset ratio), CPA referral, and audit trail.
+- **Privacy**: In-memory processing (React state), no data storage, cleared post-session via `clearSession.js`, SOC 2-compliant; Grok API calls are stateless.
+- **Report**: Client-side PDF (jsPDF) with tax savings, compliance checklist (e.g., Form 1120), risk warnings (e.g., PHC, high debt-to-asset ratio), CPA referral, and audit trail, generated via Grok API.
 - **Entity Support**: C-corp, S-corp, LLC, partnership, hybrid; validates DRD eligibility and multi-entity coordination.
-- **Input Validation**: Checks numeric inputs (e.g., revenue, loan amounts), flags compliance risks (e.g., IRC Sec. 385 debt-equity issues).
+- **Input Validation**: Checks numeric inputs (e.g., revenue, loan amounts), flags compliance risks (e.g., IRC Sec. 385 debt-equity issues) using Grok API.
 - **Accessibility**: Novice-friendly with examples (e.g., “E-commerce” for business activity) and glossary for tax terms (e.g., “DRD: Tax-free dividends”).
-- **Minimal Design**: Barebones dependencies (React, jsPDF), no external APIs (e.g., Yahoo Finance, QuickBooks).
+- **Minimal Design**: Barebones dependencies (React, jsPDF, axios), Grok API for response generation.
 - **Single-Session**: Completion required in one session due to no data retention.
 
 
